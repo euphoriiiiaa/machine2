@@ -57,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   int _currentIndex = 0;
+  int _currentIndex2 = 0;
   bool _validate = false;
   TextEditingController _nameController = TextEditingController();
   TextEditingController _numberController = TextEditingController();
@@ -91,135 +92,140 @@ class _MyHomePageState extends State<MyHomePage> {
         scrollBehavior: MyCustomScrollBehavior(),
         slivers: [
           SliverAppBar(
+            backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(15),
                     bottomRight: Radius.circular(15))),
-            title: MediaQuery.sizeOf(context).width > 900 ? Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  margin: EdgeInsets.all(8),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(color: Colors.black),
-                  child: Text(
-                    "ЛОГОТИП",
-                    style: TextStyle(color: Colors.white),
+            title: MediaQuery.sizeOf(context).width > 900
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image.asset(
+                        'logo.jpg',
+                        width: 120,
+                        height: 200,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _scrollController.animateTo(
+                            1200,
+                            duration: Duration(seconds: 1),
+                            curve: Curves.easeInOut,
+                          );
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                              border: Border.all(),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Text("Каталог"),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _scrollController.animateTo(
+                            2200,
+                            duration: Duration(seconds: 1),
+                            curve: Curves.easeInOut,
+                          );
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                              border: Border.all(),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Text("Оставьте заявку"),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _scrollController.animateTo(
+                            4000,
+                            duration: Duration(seconds: 1),
+                            curve: Curves.easeInOut,
+                          );
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                              border: Border.all(),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Text("Контакты"),
+                        ),
+                      ),
+                    ],
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image.asset(
+                        'logo.jpg',
+                        width: 120,
+                        height: 200,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _scrollController.animateTo(
+                            1200,
+                            duration: Duration(seconds: 1),
+                            curve: Curves.easeInOut,
+                          );
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                              border: Border.all(),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Icon(
+                            Icons.list,
+                            size: 30,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _scrollController.animateTo(
+                            2200,
+                            duration: Duration(seconds: 1),
+                            curve: Curves.easeInOut,
+                          );
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                              border: Border.all(),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Icon(
+                            Icons.send_to_mobile,
+                            size: 30,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _scrollController.animateTo(
+                            4000,
+                            duration: Duration(seconds: 1),
+                            curve: Curves.easeInOut,
+                          );
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                              border: Border.all(),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Icon(
+                            Icons.call,
+                            size: 30,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    _scrollController.animateTo(
-                      1200,
-                      duration: Duration(seconds: 1),
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Text("Каталог"),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    _scrollController.animateTo(
-                      2200,
-                      duration: Duration(seconds: 1),
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Text("Оставьте заявку"),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    _scrollController.animateTo(
-                      4000,
-                      duration: Duration(seconds: 1),
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                      borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: Text("Контакты"),
-                  ),
-                ),
-              ],
-            ) : Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  margin: EdgeInsets.all(8),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(color: Colors.black),
-                  child: Text(
-                    "ЛОГОТИП",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    _scrollController.animateTo(
-                      1200,
-                      duration: Duration(seconds: 1),
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Icon(Icons.list, size: 30, color: Colors.black,),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    _scrollController.animateTo(
-                      2200,
-                      duration: Duration(seconds: 1),
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Icon(Icons.send_to_mobile, size: 30, color: Colors.black,),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    _scrollController.animateTo(
-                      4000,
-                      duration: Duration(seconds: 1),
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                      borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: Icon(Icons.call, size: 30, color: Colors.black,),
-                  ),
-                ),
-              ],
-            ),
             floating: true,
           ),
           SliverToBoxAdapter(
@@ -243,10 +249,49 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: ConstrainedBox(
                           constraints: BoxConstraints(maxWidth: 2000),
                           child: Container(
-                            margin: EdgeInsets.only(top: 120),
-                            child: Align(
-                              alignment: Alignment.topLeft,
-                              child: Text('Первый блок', style: MyFonts.catalog,)
+                            margin: EdgeInsets.only(top: 420, left: 100),
+                            child: Column(
+                              children: [
+                                Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      'В ДЕТАЛЯХ',
+                                      style: MyFonts.header,
+                                    )),
+                                Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      'г. Саратов, ул. Астраханская 47',
+                                      style: MyFonts.header2,
+                                    )),
+                                GestureDetector(
+                                  onTap: () {
+                                    _scrollController.animateTo(
+                                      2200,
+                                      duration: Duration(seconds: 1),
+                                      curve: Curves.easeInOut,
+                                    );
+                                  },
+                                  child: Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Container(
+                                        margin: EdgeInsets.only(top: 30),
+                                        decoration: BoxDecoration(
+                                          border:
+                                              Border.all(color: Colors.white),
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        padding: EdgeInsets.all(16),
+                                        child: Text(
+                                          'ОТПРАВИТЬ ЗАЯВКУ',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 24),
+                                        ),
+                                      )),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -265,17 +310,44 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Container(
-                  height: 600,
+                  height: 1000,
                   width: double.infinity,
                   decoration: const BoxDecoration(color: MyColors.primary),
                   child: Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(0),
                     child: Column(
                       children: [
                         Text(
-                          "Второй блок",
+                          "НАШ КАТАЛОГ",
                           style: MyFonts.catalog,
-                        )
+                        ),
+                        Container(
+                          width: 1000,
+                          height: 800,
+                          child: PageView(
+                            onPageChanged: (page) {
+                              setState(() {
+                                _currentIndex2 = page;
+                              });
+                            },
+                            physics: BouncingScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              Image.asset('catalog1.avif'),
+                              Image.asset('catalog2.avif'),
+                              Image.asset('catalog3.avif'),
+                              Image.asset('catalog4.avif'),
+                              Image.asset('catalog5.avif'),
+                            ],
+                          ),
+                        ),
+                        PageViewIndicator(
+                          length: 5,
+                          currentIndex: _currentIndex2,
+                          currentSize: 10,
+                          currentColor: Colors.white,
+                          otherColor: Colors.black,
+                        ),
                       ],
                     ),
                   ),
@@ -488,7 +560,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: FlutterMap(
                             options: MapOptions(
                                 initialCenter: LatLng(
-                                    54.7352526406467, 55.958523199814756),
+                                    51.532201, 46.005061),
                                 initialZoom: 16.0),
                             children: [
                               TileLayer(
@@ -497,12 +569,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                               MarkerLayer(markers: [
                                 Marker(
-                                    point: LatLng(54.7349, 55.9604),
-                                    child: Container(
-                                      width: 20,
-                                      height: 20,
-                                      color: Colors.red,
-                                    ))
+                                    point: LatLng(51.532201, 46.005061),
+                                    child: Image.asset('marker.png', width: 200, height: 200,))
                               ])
                             ]),
                       ),
@@ -511,7 +579,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            "Блок карты",
+                            "НАШЕ МЕСТОПОЛОЖЕНИЕ",
                             style:
                                 MyFonts.catalog.copyWith(color: Colors.black),
                           ),
@@ -537,7 +605,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 100),
                                 child: Text(
-                                  "Контакты магазина автозапчастей НАЗВАНИЕ",
+                                  "Контакты магазина автозапчастей 'В ДЕТАЛЯХ'",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 40,
@@ -669,6 +737,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                             fontSize: 40,
                                             fontWeight: FontWeight.bold),
                                       ),
+                                      Text(
+                                        "https://vk.com/v.detalah",
+                                        style: TextStyle(
+                                            color: Colors.lightGreen,
+                                            fontSize: 40,
+                                            fontWeight: FontWeight.bold),
+                                      ),
                                     ],
                                   ),
                                 ],
@@ -716,7 +791,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Container(
               width: 500,
               child: Text(
-                "«Надёжность, качество, успех!» — девиз нашей компании. Мы поставляем запчасти для автомобилей  иностранных производителей оптовым и розничным покупателям.  Наличие собственного склада и розничного магазина делает наше взаимодействие с клиентами максимально удобным.",
+                "'Точность, надежность, процветание!' — это девиз нашей компании, которая специализируется на поставках запчастей для автомобилей иностранных марок. Мы обслуживаем как оптовых, так и розничных клиентов, предлагая широкий ассортимент продукции. Наличие собственного склада и розничного магазина гарантирует быстрое и комфортное обслуживание каждого клиента.",
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -737,7 +812,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Container(
             width: 500,
-            height: 300,
+            height: 220,
             child: PageView(
               onPageChanged: (value) {
                 setState(() {
@@ -755,7 +830,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     margin: const EdgeInsets.all(10),
                     padding: const EdgeInsets.all(20),
                     child: const Text(
-                      '«Надёжность, качество, успех!» — девиз нашей компании. Мы поставляем запчасти для автомобилей  иностранных производителей оптовым и розничным покупателям.  Наличие собственного склада и розничного магазина делает наше взаимодействие с клиентами максимально удобным.',
+                      'Как менеджер нашего магазина, я всегда готов помочь клиентам подобрать нужные запчасти, используя наш обширный каталог и экспертные знания.',
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.w700),
                       textAlign: TextAlign.center,
@@ -777,13 +852,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Первый директор",
+                              "Менеджер по продажам",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
                             ),
                             Text(
-                              "АВТО АВТО",
+                              "В ДЕТАЛЯХ",
                               style: TextStyle(color: Colors.white30),
                             )
                           ],
@@ -800,7 +875,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     margin: const EdgeInsets.all(10),
                     padding: const EdgeInsets.all(20),
                     child: const Text(
-                      '«Надёжность, качество, успех!» — девиз нашей компании. Мы поставляем запчасти для автомобилей  иностранных производителей оптовым и розничным покупателям.  Наличие собственного склада и розничного магазина делает наше взаимодействие с клиентами максимально удобным.',
+                      'Как консультант в розничном магазине, я всегда на связи, чтобы ответить на любые вопросы клиентов и помочь им с выбором, используя наш персонализированный подход к каждому покупателю.',
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.w700),
                       textAlign: TextAlign.center,
@@ -818,6 +893,21 @@ class _MyHomePageState extends State<MyHomePage> {
                             color: Colors.white,
                           ),
                         ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Консультант",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              "В ДЕТАЛЯХ",
+                              style: TextStyle(color: Colors.white30),
+                            )
+                          ],
+                        )
                       ],
                     ),
                   )
